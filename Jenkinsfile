@@ -17,12 +17,12 @@ pipeline {
                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/Code-Cafe-IT/gitops-register-app-ytb.git'
                }
         }
-
+// sed -i 's/${APP_NAME}.*/${REPOSITORY}:${IMAGE_TAG}/g' deployment.yaml
         stage("Update the Deployment Tags") {
             steps {
                 sh """
                    cat deployment.yaml
-                   sed -i 's/${APP_NAME}.*/${REPOSITORY}:${IMAGE_TAG}/g' deployment.yaml
+                   sed -i "s|\${REPOSITORY}:\${IMAGE_TAG}|${APP_NAME}/${REPOSITORY}:${IMAGE_TAG}|g" deployment.yaml
                    cat deployment.yaml
                 """
             }
