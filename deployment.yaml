@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: register-app
-          image: minhduccloud/jenkins-cicd:1.0.0-9
+          image: minhduccloud: 1.0.0-10
           resources:
             limits:
               memory: "256Mi"
