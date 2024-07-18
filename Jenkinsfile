@@ -2,6 +2,7 @@ pipeline {
     agent { label "Jenkins-Agent" }
     environment {
               APP_NAME = "minhduccloud"
+              REPOSITORY = "jenkins-cicd"
     }
 
     stages {
@@ -21,7 +22,7 @@ pipeline {
             steps {
                 sh """
                    cat deployment.yaml
-                   sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml
+                   sed -i 's/${APP_NAME}.*/${REPOSITORY}:${IMAGE_TAG}/g' deployment.yaml
                    cat deployment.yaml
                 """
             }
