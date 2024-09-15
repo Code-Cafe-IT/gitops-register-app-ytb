@@ -13,11 +13,11 @@ spec:
         app: register-app
     spec:
       containers:
-        - name: register-app
-          image: minhduccloud/jenkins-cicd:1.0.0-15
-          resources:
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
-          ports:
-            - containerPort: 8080
+      - name: register-app
+        image: minhduccloud/register-app-ci:1.0.0-10
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
