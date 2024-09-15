@@ -3,6 +3,9 @@ pipeline {
     environment {
               APP_NAME = "register-app-ci"
     }
+    parameters {
+        string(name: 'IMAGE_TAG', defaultValue: 'latest', description: 'Image tag for the deployment')
+    }
 
     stages {
         stage("Cleanup Workspace") {
